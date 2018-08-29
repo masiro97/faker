@@ -12,5 +12,5 @@
 3. `/admin` : admin 페이지
     - 저장된 이름들을 csv에서 불러와 출력한다.
 
-4. `/ffaker' : faker 페이지
+4. `/ffaker` : faker 페이지
     - faker 사용 페이지
