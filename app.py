@@ -6,7 +6,7 @@ from faker import Faker
 
 app = Flask(__name__)
 
-fake = Faker()
+fake = Faker('ko_Kr')
 
 @app.route("/")
 def index():
@@ -40,7 +40,8 @@ def admin():
 def ffaker():
 
     name = fake.name()
-    
-    return render_template('ffaker.html', name=name)
+    address = fake.address()
+    text = fake.text()
+    return render_template('ffaker.html', name=name, address=address, text=text)
     
 app.run(host='0.0.0.0', port='8080', debug=True)
