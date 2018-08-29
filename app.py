@@ -2,9 +2,11 @@
 from flask import Flask, render_template, request
 import random
 import csv
+from faker import Faker
 
 app = Flask(__name__)
 
+fake = Faker()
 
 @app.route("/")
 def index():
@@ -33,5 +35,12 @@ def admin():
     f = open('names.csv', 'r')
     names = csv.reader(f)
     return render_template('admin.html', names=names)
+
+@app.route("/ffaker")
+def ffaker():
+
+    name = fake.name()
     
-# app.run(host='0.0.0.0', port='8080', debug=True)
+    return render_template('ffaker.html', name=name)
+    
+app.run(host='0.0.0.0', port='8080', debug=True)
